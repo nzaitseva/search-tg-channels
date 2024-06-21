@@ -5,16 +5,20 @@ import urllib.parse
 import scrapy
 from tg_channel_search.items import TgChannelItem
 
-
-# scrapy crawl tlgrm -a keyword=новости
+# scrapy crawl tlgrm -a keyword=новости -o новости.csv
 
 class TlgrmRu(scrapy.Spider):
     name = 'tlgrm'
     start_urls = ['https://tlgrm.ru/channels']
+    custom_settings = {
+        'FEED_FORMAT': 'csv',
+        'FEED_EXPORT_FIELDS': ['name', 'link', 'subscribers']
+
+    }
 
     def __init__(self, keyword=None, *args, **kwargs):
         super(TlgrmRu, self).__init__(*args, **kwargs)
-        self.keyword = keyword  # явно присваиваем ключевое слово
+        self.keyword = keyword
         self.typesense_api_key = ""
 
     def parse(self, response):
@@ -60,6 +64,3 @@ class TlgrmRu(scrapy.Spider):
                                          headers={'x-typesense-api-key': self.typesense_api_key},
                                          )
                 yield request
-
-
-
