@@ -3,6 +3,8 @@ from urllib.parse import urljoin
 
 import scrapy
 from tg_channel_search.items import TgramsearchItem
+
+
 # scrapy crawl tlgrm -a keyword=новости -o дизайн.csv
 
 class TgramsearchSpider(scrapy.Spider):
