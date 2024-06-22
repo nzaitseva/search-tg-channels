@@ -10,3 +10,11 @@ class TgChannelItem(scrapy.Item):
     name = scrapy.Field()
     link = scrapy.Field()
     subscribers = scrapy.Field()
+
+
+class TgramsearchItem(scrapy.Item):
+    name = scrapy.Field()
+    link = scrapy.Field()
+    subscribers = scrapy.Field()
+    description = scrapy.Field()
+    categories = scrapy.Field()
