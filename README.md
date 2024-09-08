@@ -5,8 +5,7 @@
 
 Например:
 
-```scrapy crawl tlgrm -a keyword=новости
-```
+```scrapy crawl tlgrm -a keyword=новости```
 
 
 _Todo: добавить больше источников._
